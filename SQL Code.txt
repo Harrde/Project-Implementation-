@@ -1,0 +1,71 @@
+CREATE TABLE GME (
+unique_id    INTEGER,
+Company      CHAR(10) NOT NULL,
+_id          CHAR(50) NOT NULL,
+adjClose     FLOAT,
+change       FLOAT,
+changeOverTime  FLOAT,
+changePercent   FLOAT,
+close           FLOAT,
+date            DATE,
+high            FLOAT,
+label           DATE,
+low             FLOAT,
+open            FLOAT,
+unadjustedVolume  FLOAT,
+volume            FLOAT,
+vwap              FLOAT,
+PRIMARY KEY (unique_id)
+);
+
+CREATE TABLE AMC (
+unique_id    INTEGER,
+Company      CHAR(10) NOT NULL,
+_id          CHAR(50) NOT NULL,
+adjClose     FLOAT,
+change       FLOAT,
+changeOverTime  FLOAT,
+changePercent   FLOAT,
+close           FLOAT,
+date            DATE,
+high            FLOAT,
+label           DATE,
+low             FLOAT,
+open            FLOAT,
+unadjustedVolume  FLOAT,
+volume            FLOAT,
+vwap              FLOAT,
+PRIMARY KEY (unique_id)
+);
+
+
+INSERT INTO AMC(unique_id, company, _id, adjclose, change, changeovertime, changepercent, close, date, high, label, low, open, unadjustedvolume, volume, vwap)
+VALUES('1', 'AMC','m606c7a6820672ce57b781817','11.16','1','0.09843','9.843','11.16','3/12/2021','11.4','12-Mar-21','9.94','10.16','110443600','110443600','10.83333'),
+('2','AMC','606c7a6820672ce57b781818','10.28','-0.37','-0.03474','-3.474','10.28','3/11/2021','10.87','11-Mar-21','9.9','10.65','83933600','83933600','10.35'),
+('3','AMC', '606c7a6820672ce57b781819','9.85', '-1.17','-0.10617', '-10.617','9.85','3/10/2021','12.47','10-Mar-21','9.51','11.02','261918600','261918600','10.61'),
+('4','AMC', '606c7a6820672ce57b78181a','10.5', '1.12','0.1194','11.94','10.5','3/9/2021','10.77','9-Mar-21','9.22','9.38', '150415600','150415600','10.16333'),
+('5','AMC','606c7a6820672ce57b78181b','9.29','0.76','0.0891','8.91','9.29','3/8/2021','9.48','8-Mar-21','8.31','8.53','114343800','114343800','9.02667')
+ 
+
+
+INSERT INTO GME (unique_id, company, _id, adjclose, change, changeovertime, changepercent, close, date, high, label, low, open, unadjustedvolume, volume, vwap)
+VALUES('5','GME','606c7a6820672ce57b781330','194.5','39.61','0.25573','25.573','194.5','3/8/2021','210.869995','8-Mar-21','146.100006','154.889999','63565600','63565600','183.82333'),
+('6','GME', '606c7a6820672ce57b781331', '137.740005', '9.57001','0.07467','7.467','137.740005','3/5/2021','151.529999','5-Mar-21','127.5', '128.169998','30733700','30733700','138.92333')
+
+#Quality check for all data in each table
+#Checking for values
+SELECT *
+FROM GME;
+#Quality check for all data in each table
+#Checking for values
+SELECT *
+FROM AMC;
+
+(#Selecting GME & AMC Data join on unique_id match)  
+SELECT *
+FROM GME, AMC
+WHERE gme.unique_id = amc.unique_id;
+
+#Same Result a above Query
+SELECT *
+FROM GME JOIN AMC ON gme.unique_id = amc.unique_id;
