@@ -1,0 +1,44 @@
+CREATE TABLE GME (
+unique_id    INTEGER,
+Company      CHAR(10) NOT NULL,
+_id          CHAR(50) NOT NULL, 
+adjClose     FLOAT,
+change       FLOAT,
+changeOverTime  FLOAT,
+changePercent   FLOAT,
+close           FLOAT,
+date            DATE,
+high            FLOAT,
+label           DATE,
+low             FLOAT,
+open            FLOAT,
+unadjustedVolume  FLOAT,
+volume            FLOAT,
+vwap              FLOAT,
+PRIMARY KEY (unique_id)
+);
+
+CREATE TABLE AMC (
+unique_id    INTEGER,
+Company      CHAR(10) NOT NULL,
+_id          CHAR(50) NOT NULL, 
+adjClose     FLOAT,
+change       FLOAT,
+changeOverTime  FLOAT,
+changePercent   FLOAT,
+close           FLOAT,
+date            DATE,
+high            FLOAT,
+label           DATE,
+low             FLOAT,
+open            FLOAT,
+unadjustedVolume  FLOAT,
+volume            FLOAT,
+vwap              FLOAT,
+PRIMARY KEY (unique_id)
+);
+
+
+
+INSERT INTO GME (unique_id, company, _id, adjclose, change, changeovertime, changepercent, close, date, high, label, low, open, unadjustedvolume, volume, vwap)
+VALUES('1',	'GME','606c7a6820672ce57b78132c','264.5','-10.5','-0.03818','-3.818','264.5','3/12/2021','295.5','12-Mar-21', '262.269989','275','25760700','25760700','274.09')
